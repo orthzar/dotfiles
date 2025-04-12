@@ -6,9 +6,9 @@
 (defcommand pamixer (args) ((:shell "Arguments: "))
   "Run pamixer with arguments, such as to adjust audio volume."
   (run-shell-command (format nil "pamixer ~A" args)))
-(define-key *top-map* (kbd "XF86AudioMute") "pamixer -t")          ;XF86AudioMute
-(define-key *top-map* (kbd "XF86AudioLowerVolume") "pamixer -d 5") ;XF86AudioLowerVolume
-(define-key *top-map* (kbd "XF86AudioRaiseVolume") "pamixer -i 5") ;XF86AudioRaiseVolume
+(define-key *top-map* (kbd "XF86AudioMute") "pamixer -t")
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "pamixer -d 5")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "pamixer -i 5")
 
 ;; Bitcoin private keys:
 (defvar *btc-priv-keys* 
