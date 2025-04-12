@@ -1,0 +1,19 @@
+;;; Lock the screen. This is the same as Windows.
+(define-key *top-map* (kbd "s-l") "run-shell-command slock")
+
+;;; Control audio levels via special buttons.
+;; I honestly dont know why I need this DEFCOMMAND, but it works.
+(defcommand pamixer (args) ((:shell "Arguments: "))
+  "Run pamixer with arguments, such as to adjust audio volume."
+  (run-shell-command (format nil "pamixer ~A" args)))
+(define-key *top-map* (kbd "XF86AudioMute") "pamixer -t")          ;XF86AudioMute
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "pamixer -d 5") ;XF86AudioLowerVolume
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "pamixer -i 5") ;XF86AudioRaiseVolume
+
+;; Bitcoin private keys:
+(defvar *btc-priv-keys* 
+  #("E9873D79C6D87DC0FB6A5778633389F4453213303DA61F20BD67FC233AA33262"
+    "5Kb8kLf9zgWQnoVidDA76MzPL6TsZZY36hWXMssSzNydYXYB9KF" 
+    "SzavMBLoXU6kDrqtUVmffv"
+    "S6c56bnXQiBjk9mpSYE7ykVQ7NzrRy"
+    "4JPy8Zg7z4P7RSLsiqcqyeAF1935zjNUdMxcDeVrtU1oarrgnB7"))
